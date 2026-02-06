@@ -21,7 +21,7 @@ main:
     syscall
     move $a1, $v0
 
-    j calc_perimeter
+    jal calc_perimeter
 
     li $v0, 10
     syscall
