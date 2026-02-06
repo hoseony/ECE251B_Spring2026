@@ -1,17 +1,28 @@
 .data
-
+    result: .word 0
 
 .text
 .globl main
 
+calc_perimeter:
+    add $t0, $a0, $a1
+    sll $t0, $t0, 1
+
+    sw $t0, result
+
+    jr $ra              #new discovery, from the textbook
+
 main:
     li $v0, 5
     syscall
-    move $v0, $a0
+    move $a0, $v0
 
-    li$vo, 5
+    li $v0, 5
     syscall
-    move $v0, %a1
+    move $a1, $v0
 
-calc_perimeter:
-    
+    j calc_perimeter
+
+    li $v0, 10
+    syscall
+
