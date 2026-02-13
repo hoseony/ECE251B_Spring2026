@@ -10,6 +10,11 @@ average_of_squares:
 
     #int t1 = square(a0)
     jal square
+
+    #------------
+    #returns here
+    #------------
+
     move $t0, $v0
 
     #int t2 = square(a1)
