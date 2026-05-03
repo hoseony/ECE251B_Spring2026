@@ -35,7 +35,7 @@ module tb_register_n;
     initial begin
 
         $display("\n----------------------");
-        d = 32'h11111111;
+        d = 32'h1111_1111;
 
         $monitor("Time=%t, Clk=%b, rst_n=%b, en=%b, d=%h, q=%h", $time, clk, rst_n, en, d, q);
 
