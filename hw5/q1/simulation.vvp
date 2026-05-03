@@ -1,0 +1,61 @@
+#! /usr/local/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/12.0/lib/ivl/v2009.vpi";
+S_0x7fb22a104080 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x7fb22a1041f0 .scope module, "tb_decoder_test" "tb_decoder_test" 3 1;
+ .timescale 0 0;
+v0x600000f78480_0 .net "dec", 3 0, L_0x600000c7c000;  1 drivers
+v0x600000f78510_0 .var "sel", 1 0;
+S_0x7fb22a104360 .scope module, "dut" "decoder_test" 3 6, 4 1 0, S_0x7fb22a1041f0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 4 "dec";
+    .port_info 1 /INPUT 2 "sel";
+v0x600000f78000_0 .net *"_ivl_10", 1 0, L_0x600000c74000;  1 drivers
+v0x600000f78090_0 .net *"_ivl_13", 0 0, L_0x600000c740a0;  1 drivers
+L_0x7fb220040008 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v0x600000f78120_0 .net/2u *"_ivl_2", 1 0, L_0x7fb220040008;  1 drivers
+v0x600000f781b0_0 .net *"_ivl_4", 0 0, L_0x600000c78000;  1 drivers
+L_0x7fb220040050 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x600000f78240_0 .net/2s *"_ivl_6", 1 0, L_0x7fb220040050;  1 drivers
+L_0x7fb220040098 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x600000f782d0_0 .net/2s *"_ivl_8", 1 0, L_0x7fb220040098;  1 drivers
+v0x600000f78360_0 .net "dec", 3 0, L_0x600000c7c000;  alias, 1 drivers
+v0x600000f783f0_0 .net "sel", 1 0, v0x600000f78510_0;  1 drivers
+L_0x600000c7c000 .part/pv L_0x600000c740a0, 2, 1, 4;
+L_0x600000c78000 .cmp/eq 2, v0x600000f78510_0, L_0x7fb220040008;
+L_0x600000c74000 .functor MUXZ 2, L_0x7fb220040098, L_0x7fb220040050, L_0x600000c78000, C4<>;
+L_0x600000c740a0 .part L_0x600000c74000, 0, 1;
+    .scope S_0x7fb22a1041f0;
+T_0 ;
+    %vpi_call/w 3 12 "$display", "Time\011 sel\011 dec[2]" {0 0 0};
+    %vpi_call/w 3 13 "$monitor", "%0t\011 %b\011 %b", $time, v0x600000f78510_0, &PV<v0x600000f78480_0, 2, 1> {0 0 0};
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x600000f78510_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x600000f78510_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x600000f78510_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v0x600000f78510_0, 0, 2;
+    %delay 10, 0;
+    %vpi_call/w 3 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb_q3c.sv";
+    "q3c.sv";
